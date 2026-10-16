@@ -1,0 +1,13 @@
+[package]
+name = "q4k"
+version = "1.0.0"
+description = "Q4 affine G32: U4 com scale e zero-point F16"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["q4k"]
+
+[capabilities]
+provides = ["quantization"]

@@ -1,0 +1,64 @@
+[package]
+name = "quantizations"
+version = "1.0.0"
+description = "Weight-storage codecs for MyeLiN applications"
+include_directories = [
+    ".shared/include",
+    "BF16/include",
+    "F16/include",
+    "F32/include",
+    "Int8/include",
+    "KBlock/include",
+    "Q4K/include",
+    "Q5K/include",
+    "Q6K/include",
+    "Q8/include",
+]
+
+[build.graph.bf16]
+toolchain = "cpp"
+sources = ["BF16/src/package.cpp"]
+exports = ["bf16"]
+
+[build.graph.f16]
+toolchain = "cpp"
+sources = ["F16/src/package.cpp"]
+exports = ["f16"]
+
+[build.graph.f32]
+toolchain = "cpp"
+sources = ["F32/src/package.cpp"]
+exports = ["f32"]
+
+[build.graph.int8]
+toolchain = "cpp"
+sources = ["Int8/src/package.cpp"]
+exports = ["int8", "int8_compatibility"]
+
+[build.graph.q4k]
+toolchain = "cpp"
+sources = ["Q4K/src/package.cpp"]
+exports = ["q4k", "q4k_compatibility"]
+
+[build.graph.q5k]
+toolchain = "cpp"
+sources = ["Q5K/src/package.cpp"]
+exports = ["q5k", "q5k_compatibility"]
+
+[build.graph.q6k]
+toolchain = "cpp"
+sources = ["Q6K/src/package.cpp"]
+exports = ["q6k", "q6k_compatibility"]
+
+[build.graph.q8]
+toolchain = "cpp"
+sources = ["Q8/src/package.cpp"]
+exports = ["q8", "q8_compatibility"]
+
+[build.graph.kblock]
+toolchain = "cpp"
+sources = ["KBlock/src/package.cpp"]
+exports = ["kblock"]
+
+[capabilities]
+provides = ["quantization"]

@@ -1,0 +1,17 @@
+[package]
+name = "kblock"
+version = "1.0.0"
+description = "Fachada dos layouts GGML Q5_K e Q6_K"
+include_directories = ["include", "../.shared/include"]
+
+[dependencies]
+q5k = { path = "../Q5K" }
+q6k = { path = "../Q6K" }
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["kblock"]
+
+[capabilities]
+provides = ["quantization"]

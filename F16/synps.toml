@@ -1,0 +1,13 @@
+[package]
+name = "f16"
+version = "1.0.0"
+description = "Meia precisao IEEE 754"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["f16"]
+
+[capabilities]
+provides = ["quantization"]

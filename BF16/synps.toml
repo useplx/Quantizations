@@ -1,0 +1,13 @@
+[package]
+name = "bf16"
+version = "1.0.0"
+description = "Brain float 16, storage nativo de checkpoints modernos"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["bf16"]
+
+[capabilities]
+provides = ["quantization"]

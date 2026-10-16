@@ -1,0 +1,35 @@
+name: CI
+
+on:
+    push:
+    pull_request:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    codecs:
+        runs-on: ubuntu-24.04
+        env:
+            CC: gcc-14
+            CXX: g++-14
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  path: Quantizations
+            - uses: actions/checkout@v4
+              with:
+                  repository: useplx/MyeLiN
+                  path: MyeLiN
+            - name: Install build tools
+              run: sudo apt-get update && sudo apt-get install -y gcc-14 g++-14 ninja-build
+            - name: Configure
+              run: >-
+                  cmake -S Quantizations -B build -G Ninja
+                  -DCMAKE_BUILD_TYPE=RelWithDebInfo
+                  -DMLN_ROOT=${{ github.workspace }}/MyeLiN
+            - name: Build
+              run: cmake --build build --parallel 2
+            - name: Test
+              run: ctest --test-dir build --output-on-failure

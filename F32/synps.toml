@@ -1,0 +1,13 @@
+[package]
+name = "f32"
+version = "1.0.0"
+description = "Ponto flutuante de 32 bits, sem perda"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["f32"]
+
+[capabilities]
+provides = ["quantization"]

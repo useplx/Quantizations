@@ -1,0 +1,13 @@
+[package]
+name = "int8"
+version = "1.0.0"
+description = "Symmetric 8-bit integer with one scale per output row"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["int8"]
+
+[capabilities]
+provides = ["quantization"]

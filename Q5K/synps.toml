@@ -1,0 +1,13 @@
+[package]
+name = "q5k"
+version = "1.0.0"
+description = "Q5_K do GGML: superbloco de 256, 5 bits por valor"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["q5k"]
+
+[capabilities]
+provides = ["quantization"]

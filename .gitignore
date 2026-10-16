@@ -1,0 +1,10 @@
+build/
+build-*/
+target/
+*.o
+*.a
+*.so
+.cache/
+*.zip
+__pycache__/
+*.py[cod]

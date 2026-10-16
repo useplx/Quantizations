@@ -1,0 +1,13 @@
+[package]
+name = "q8"
+version = "1.0.0"
+description = "8-bit values grouped by 32 with graph-defined decoding"
+include_directories = ["include", "../.shared/include"]
+
+[build.graph.format]
+toolchain = "cpp"
+sources = ["src/package.cpp"]
+exports = ["q8"]
+
+[capabilities]
+provides = ["quantization"]
